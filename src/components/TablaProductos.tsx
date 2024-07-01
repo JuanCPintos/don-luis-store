@@ -42,9 +42,9 @@ const TablaProduco = () =>{
       <div className="p-2">
         <p className="text-2xl">Productos</p>
       </div>
-      <div className="w-full mb-1 h-[48px]">
+      <div className="w-full px-2 mb-2 h-[48px]">
         <form action="" method="get" className="w-full">
-          <input type="text" placeholder="Buscar" className="w-full pl-3 pb-3 pt-2 text-inherit bg-slate-200 rounded-2xl focus:border-cyan-400"/>
+          <input type="text" placeholder="Buscar" className="w-full pl-4 pb-3 pt-2 text-inherit bg-slate-200 rounded-3xl focus:border-cyan-400"/>
         </form>
       </div>
       <div className="w-full flex-1 overflow-y-auto">

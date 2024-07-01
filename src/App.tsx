@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import './App.css';
 import './output.css';
 import Nav from './components/Nav';
@@ -7,6 +7,7 @@ import Libretas from './pages/Libretas';
 import Libro from './pages/Libro';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Productos from './pages/Productos';
+import Proveedores from './pages/Proveedores';
 
 
 function App() {
@@ -22,8 +23,9 @@ function App() {
               <Route path='/' element={<Productos/>}/>
               <Route path='*' element={<>NO SE ENCONTRO</>}/>
               <Route path='/productos' element={<Productos/>}/>
-              <Route path='/cargar' element={<Cargar/>}/>
               <Route path='/libretas' element={<Libretas/>}/>
+              <Route path='/cargar' element={<Cargar/>}/>
+              <Route path='/proveedores' element={<Proveedores/>}/>
               <Route path='/librodiario' element={<Libro/>}/>
             </Routes>
 
