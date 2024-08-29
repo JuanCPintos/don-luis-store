@@ -1,6 +1,8 @@
 import mongoose, { Document, Schema, Types } from "mongoose"
 
-export interface IProducto extends Document{
+export type CreateProduct = Pick<IProduct, "name" | "brand" | "sector" | "cost" | "percentageIncrease">;
+
+export interface IProduct extends Document {
   id: Types.ObjectId
   name: string
   brand: string
@@ -9,7 +11,7 @@ export interface IProducto extends Document{
   percentageIncrease: number
 }
 
-const ProductoSchema: Schema = new Schema({
+const ProductSchema: Schema = new Schema({
   name: {
     type: String,
     required: true
@@ -18,20 +20,20 @@ const ProductoSchema: Schema = new Schema({
     type: String,
     default: null
   },
-  sector:{
-    type:String,
+  sector: {
+    type: String,
     default: null
   },
-  cost:{
+  cost: {
     type: Number,
     required: true
   },
-  percentageIncrease:{
+  percentageIncrease: {
     type: Number,
-    required:true
+    required: true
   }
 })
 
-const Product = mongoose.model<IProducto>("Product", ProductoSchema)
+const Product = mongoose.model<IProduct>("Product", ProductSchema)
 
 export default Product

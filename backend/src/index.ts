@@ -1,21 +1,18 @@
 import express from 'express';
 import dbConnection from './config/database/database.config';
-
-const PORT = process.env.PORT || 3000;
+import { envs } from './config/envs/env.config';
+import routes from './routes/Index.routes';
 
 const app = express();
 
 // Middleware para analizar el cuerpo de las solicitudes como JSON
 app.use(express.json());
 
-
 // Rutas
-app.get('/', (req, res) => {
-  res.send('¡Hola, mundo!');
-});
+app.use("/", routes)
 
 dbConnection()
 
-app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+app.listen(envs.PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${envs.PORT}`);
 });
