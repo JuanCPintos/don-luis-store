@@ -19,11 +19,18 @@ export class ProductRepository {
       throw error
     }
   }
-  async getAll(): Promise<IProduct[]> {
-    try{
+  async getAll(query: string): Promise<IProduct[]> {
+    try {
+      if (query) {
+        const products: IProduct[] = await this.ProductModel.find<IProduct>({
+          name: new RegExp(query, 'i')
+        })
+        return products
+      }
       const products: IProduct[] = await this.ProductModel.find<IProduct>({})
+
       return products
-    } catch (error){
+    } catch (error) {
       throw error
     }
   }

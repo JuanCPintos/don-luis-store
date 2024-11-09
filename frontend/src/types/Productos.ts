@@ -1,6 +1,16 @@
-export type Producto = {
+import { IProduct } from "../services/api"
+
+export type Product = {
   id: number,
-  nombre: string,
-  rubro?: string,
-  precio: number
+  name: string,
+  brand: string,
+  sector?: string,
+  cost: number,
+  percentageIncrease: number
+  price: number,
+}
+
+export interface ResponseProduct {
+  status: string,
+  payload: IProduct[]
 }

@@ -6,7 +6,8 @@ export class ProductService {
   constructor(productRepository: ProductRepository) {
     this.productRepository = productRepository
   }
-  async create(product: CreateProduct){
+
+  async create(product: CreateProduct) {
     try {
       const newProduct = await this.productRepository.create(product)
       return {
@@ -17,10 +18,22 @@ export class ProductService {
       throw error
     }
   }
-  async getById(){}
-  async getAll(){}
-  async update(){}
-  async delete(){}
+
+  async getById() { }
+
+  async getAll(query:string='') {
+    try {
+      const response = await this.productRepository.getAll(query)
+      return {
+        status: "success",
+        payload: response
+      }
+    } catch (error) {
+      throw error
+    }
+  }
+  async update() { }
+  async delete() { }
 
 
 
